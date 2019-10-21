@@ -18,11 +18,19 @@ int servoThreePin;
 int servoFourPin;
 int servoFivePin;
 
-int angulo;
+int anguloOne;
+int anguloTwo;
+int anguloThree;
+int anguloFour;
+int anguloFive;
 
 void setup()
 {
-  angulo = 0;
+  anguloOne = 0;
+  anguloTwo = 0;
+  anguloThree = 0;
+  anguloFour = 0;
+  anguloFive = 0;
 
   servoOnePin = 5;
   servoTwoPin = 6;
@@ -39,15 +47,15 @@ void setup()
 
 void loop()
 {
-  servoOne.write(angulo);
+  servoOne.write(anguloOne);
   delay(250);
-  servoTwo.write(angulo);
+  servoTwo.write(anguloTwo);
   delay(250);
-  servoThree.write(angulo);
+  servoThree.write(anguloThree);
   delay(250);
-  servoFour.write(angulo);
+  servoFour.write(anguloFour);
   delay(250);
-  servoFive.write(angulo);
+  servoFive.write(anguloFive);
   delay(250);
 
 }
