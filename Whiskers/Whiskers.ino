@@ -4,6 +4,15 @@
    author @Danny Xie Li
 */
 
+/*
+   Angles 
+   Servo I   180
+   Servo II  130
+   Servo III 120
+   Servo IV  
+   Servo V    50
+
+*/
 #include <Servo.h>
 
 Servo servoOne;
