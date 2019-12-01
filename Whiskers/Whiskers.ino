@@ -15,56 +15,40 @@
 */
 #include <Servo.h>
 
-Servo servoOne;
-Servo servoTwo;
-Servo servoThree;
-Servo servoFour;
-Servo servoFive;
+Servo servo1;
 
-int servoOnePin;
-int servoTwoPin;
-int servoThreePin;
-int servoFourPin;
-int servoFivePin;
-
-int anguloOne;
-int anguloTwo;
-int anguloThree;
-int anguloFour;
-int anguloFive;
+int angulo = 0;
+int Eje_X = A1;
+int Eje_Y = A2;
+int boton = 4;
+const int buttonPin = 2;
+float value;
+int buttonState = 0;    
+int once;
 
 void setup()
 {
-  anguloOne = 0;
-  anguloTwo = 0;
-  anguloThree = 0;
-  anguloFour = 0;
-  anguloFive = 0;
-
-  servoOnePin = 5;
-  servoTwoPin = 6;
-  servoThreePin = 7;
-  servoFourPin = 8;
-  servoFivePin = 9;
-
-  servoOne.attach(servoOnePin);
-  servoTwo.attach(servoTwoPin);
-  servoThree.attach(servoThreePin);
-  servoFour.attach(servoFourPin);
-  servoFive.attach(servoFivePin);
+  servo1.attach(6) ;
+  pinMode(boton, INPUT_PULLUP) ;  
+  pinMode(buttonPin, INPUT);
+  value = 0;
 }
 
 void loop()
 {
-  servoOne.write(anguloOne);
-  delay(250);
-  servoTwo.write(anguloTwo);
-  delay(250);
-  servoThree.write(anguloThree);
-  delay(250);
-  servoFour.write(anguloFour);
-  delay(250);
-  servoFive.write(anguloFive);
-  delay(250);
-
+  buttonState = digitalRead(buttonPin);
+  if (buttonState == HIGH) {
+    value = value;
+    once = 1;
+  }
+  if (once == 1)
+  {
+    value = value;
+  }
+  else
+  {
+    value = analogRead(A1);
+  }
+  angulo  = map( value, 0, 1024, 0, 180);
+  servo1.write(angulo);;
 }
